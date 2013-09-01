@@ -35,39 +35,49 @@
     <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
   </head>
   <body>
-
-    <div class="navbar navbar-fluid-top" style="border-radius: 0;">
-      <div class="navbar-inner">
-        <div class="container-fluid">
-          <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="/">
-            <%= image_tag "logo-advertencia-cidada-150.png", :alt => "Advertência Cidadã", :style => "height: 100px;" %>
-            <span id="brand-name" style="margin-left: 20px; font-size: 30px">Advertência Cidadã</span>
-          </a>
-          <div class="container-fluid nav-collapse">
-            <ul class="nav">
-            </ul>
-            <div class="pull-right">
-            </div>
-          </div><!--/.nav-collapse -->
+    <div id="wrap">
+      <div class="navbar navbar-fluid-top" style="border-radius: 0;">
+        <div class="navbar-inner">
+          <div class="container-fluid">
+            <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="/">
+              <%= image_tag "logo-advertencia-cidada-150.png", :alt => "Advertência Cidadã", :style => "height: 100px; float: left" %>
+              <h2 id="brand-name" style="margin-left: 20px; font-size: 30px; font-family: verdana; font-weight: bold; line-height: 28px; float: left; margin-top: 24px">
+                ADVERTÊNCIA CIDADÃ<br /><small style="font-size: 22px">Cidadão concientizando cidadão</small>
+              </h2>
+            </a>
+            <div class="container-fluid nav-collapse">
+              <ul class="nav">
+              </ul>
+              <div class="pull-right">
+                <%= yield :navbar %>
+              </div>
+            </div><!--/.nav-collapse -->
+          </div>
         </div>
+        <div style="height: 10px; background: #2f4d7c"></div>
       </div>
-      <div style="height: 10px; background: #2f4d7c"></div>
+
+      <div class="container-fluid">
+        <div class="row-fluid">
+          <div class="span12">
+            <%= bootstrap_flash %>
+            <%= yield %>
+          </div>
+        </div><!--/row-->
+
+      </div> <!-- /container -->
     </div>
 
-    <div class="container-fluid">
-      <div class="row-fluid">
-        <div class="span12">
-          <%= bootstrap_flash %>
-          <%= yield %>
-        </div>
-      </div><!--/row-->
-
-    </div> <!-- /container -->
+    <div id="footer">
+      <div class="container">
+        <p class="muted credit">Todos os direitos reservados © 2013 <a href="http://cidadera.com">Cidadera</a>.</p>
+      </div>
+    </div>
 
     <!-- Javascripts
     ================================================== -->

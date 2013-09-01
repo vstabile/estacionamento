@@ -38,9 +38,26 @@
     <% end %>
   </tbody>
 </table>
-<div style="float: left">
-  <%= page_entries_info @notifications, :entry_name => "advertência" %>
+<div>
+  <div style="float: left">
+    <%= page_entries_info @notifications, :entry_name => "advertência" %>
+  </div>
+  <div style="float: right">
+    <%= paginate @notifications %>
+  </div>
 </div>
-<div style="float: right">
-  <%= paginate @notifications %>
-</div>
+
+<% content_for :navbar do %>
+  <%= search_form_for @q do |f| %>
+    <div class="controls controls-row">
+      <%= f.text_field :chamado_id_eq, :placeholder => "Chamado", :class => "input-medium" %>
+      <%= f.text_field :placa_eq, :placeholder => "Placa", :class => "input-medium" %>
+      <%= f.text_field :bairro_cont, :placeholder => "Bairro", :class => "input-medium" %>
+    </div>
+    <div class="controls controls-row">
+      <%= f.text_field :reported_at_gteq, :placeholder => "De", :class => "input-medium" %>
+      <%= f.text_field :reported_at_lteq, :placeholder => "Até", :class => "input-medium" %>
+      <%= f.submit "Buscar", :class => "btn" %>
+    </div>
+  <% end %>
+<% end %>

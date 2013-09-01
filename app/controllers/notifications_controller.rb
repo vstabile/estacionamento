@@ -1,6 +1,7 @@
 class NotificationsController < ApplicationController
   def index
-    @notifications = Notification.order("reported_at DESC").page(params[:page]).per(20)
+    @q = Notification.order("reported_at DESC").search(params[:q])
+    @notifications = @q.result(distinct: true).page(params[:page]).per(20)
   end
 
   def show

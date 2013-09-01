@@ -141,9 +141,9 @@ pt-BR:
         display_entries:
           zero: "Nenhuma %{entry_name} encontrada"
           one: "Mostrando <b>1</b> %{entry_name}"
-          other: "Mostrando <b>todas %{count}</b> %{entry_name}"
+          other: "Mostrando <b>todas %{count}</b> %{entry_name}s"
       more_pages:
-        display_entries: "Mostrando %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> de <b>%{total}</b> no total"
+        display_entries: "Mostrando %{entry_name}s <b>%{first}&nbsp;-&nbsp;%{last}</b> de <b>%{total}</b> no total"
     select:
       prompt: Por favor selecione
     submit:
