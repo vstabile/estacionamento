@@ -1,0 +1,46 @@
+<%- model_class = Notification -%>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:chamado_id) %></th>
+      <th><%= model_class.human_attribute_name(:placa) %></th>
+      <th><%= model_class.human_attribute_name(:bairro) %></th>
+      <th><%= model_class.human_attribute_name(:logradouro) %></th>
+      <th>Número</th>
+      <th>Infração</th>
+      <th>Reportado em</th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @notifications.each do |notification| %>
+      <tr>
+        <td><%= link_to notification.id, notification_path(notification) %></td>
+        <td><%= notification.chamado_id %></td>
+        <td><%= notification.placa %></td>
+        <td><%= notification.bairro %></td>
+        <td><%= notification.logradouro %></td>
+        <td><%= notification.numero %></td>
+        <td><%= notification.subtipo.sub("Fiscalização de ", "").capitalize %></td>
+        <td><%=l notification.reported_at, :format => :short %></td>
+        <td>
+          <%= link_to "Visualizar",
+                      notification_path(notification),
+                      :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      notification_path(notification),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div style="float: left">
+  <%= page_entries_info @notifications, :entry_name => "advertência" %>
+</div>
+<div style="float: right">
+  <%= paginate @notifications %>
+</div>

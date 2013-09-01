@@ -20,7 +20,7 @@ namespace :notifications do
 
           notification = Notification.new
           notification.chamado_id = chamado.id_chamado
-          notification.placa = placa
+          notification.placa = placa.sub(/ |-/,"").upcase
           notification.logradouro = bairro_logradouro.logradouro.no_logradouro
           notification.bairro = bairro_logradouro.bairro.no_bairro.strip
           notification.numero = chamado.ds_endereco_numero

@@ -1,0 +1,68 @@
+<%- model_class = Notification -%>
+
+<div class="row-fluid">
+  <div class="span6">
+    <div class="advertencia-container" style="background: #2f4d7c; height: 780px; border: 1px solid #AAA; box-shadow: 0px 0px 6px 2px #AAA;">
+      <div class="advertencia-top" style="background-color: #EEE; height: 700px;">
+        <div style="background: #2f4d7c; height: 3%; margin-bottom: 6%">
+        </div>
+        <div style="text-align: center">
+          <%= image_tag "logo-advertencia-cidada-150.png", :style => "width: 30%" %>
+        </div>
+        <div style="margin: 5%; font-size: 24px; line-height: 30px; margin-bottom: 0;">
+          <p>Cidadão,</p>
+          <p>O veículo de placa <%= @notification.placa %> foi objeto de ocorrência na <strong>Central de Atendimento 1746.</strong></p>
+        </div>
+        <div style="margin: 5%; font-size: 18px; display: inline-block;  margin-bottom: 0">
+          <div style="float: left; width: 50%">
+            <p style="margin-bottom: 6px;">Motivo: <%= @notification.subtipo.sub("Fiscalização de ", "").capitalize %></p>
+            <p style="margin-bottom: 6px;">Local: <%= @notification.logradouro %>, <%= @notification.numero %></p>
+            <p>Data: <%= l @notification.reported_at, :format => :long %></p>
+          </div>
+          <div style="float: left; width: 50%;">
+            <%= image_tag "placa.JPG", :style => "width: 45%; margin-left: 5%" %>
+            <%= image_tag "estacionar_na_faixa_amarela.JPG", :style => "width: 45%" %>
+          </div>
+        </div>
+        <div style="margin: 5%; font-size: 18px">
+          <p style="color: #F00;">Esta modalidade de infração, quando autuada por autoridade competente, acarreta multa de R$ XXXX e X pontos na carteira.</p>
+          <p>Respeitar o próximo é um ato de cidadania e todos ganham com sua compreensão e colaboração.</p>
+        </div>
+      </div>
+      <%= image_tag "prefeiturarj.png", :style => "float: right; margin: 8px;" %>
+    </div>
+  </div>
+  <div class="span6">
+    <dl class="dl-horizontal">
+      <dt><strong><%= model_class.human_attribute_name(:chamado_id) %>:</strong></dt>
+      <dd><%= @notification.chamado_id %>&nbsp;</dd>
+      <dt><strong><%= model_class.human_attribute_name(:placa) %>:</strong></dt>
+      <dd><%= @notification.placa %>&nbsp;</dd>
+      <dt><strong><%= model_class.human_attribute_name(:logradouro) %>:</strong></dt>
+      <dd><%= @notification.logradouro %></dd>
+      <dt><strong><%= model_class.human_attribute_name(:bairro) %>:</strong></dt>
+      <dd><%= @notification.bairro %>&nbsp;</dd>
+      <dt><strong><%= model_class.human_attribute_name(:numero) %>:</strong></dt>
+      <dd><%= @notification.numero %>&nbsp;</dd>
+      <dt><strong><%= model_class.human_attribute_name(:cep) %>:</strong></dt>
+      <dd><%= @notification.cep %>&nbsp;</dd>
+      <dt><strong><%= model_class.human_attribute_name(:complemento) %>:</strong></dt>
+      <dd><%= @notification.complemento %>&nbsp;</dd>
+      <dt><strong><%= model_class.human_attribute_name(:subtipo) %>:</strong></dt>
+      <dd><%= @notification.subtipo %>&nbsp;</dd>
+      <dt><strong><%= model_class.human_attribute_name(:reported_at) %>:</strong></dt>
+      <dd><%= @notification.reported_at %>&nbsp;</dd>
+    </dl>
+    <%= link_to "Imprimir PDF", "#", :class => 'btn btn-large pull-right'  %>
+  </div>
+</div>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              notifications_path, :class => 'btn'  %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              notification_path(@notification),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>

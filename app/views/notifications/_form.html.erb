@@ -1,0 +1,62 @@
+<%= form_for @notification, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :chamado_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :chamado_id, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :placa, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :placa, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :logradouro, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :logradouro, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :bairro, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :bairro, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :numero, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :numero, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :cep, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :cep, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :complemento, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :complemento, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :subtipo, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :subtipo, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :reported_at, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.datetime_select :reported_at, :class => 'datetime_select' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                notifications_path, :class => 'btn' %>
+  </div>
+<% end %>
