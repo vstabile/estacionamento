@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  chamado_id: 1
+  placa: MyString
+  logradouro: MyString
+  bairro: MyString
+  numero: MyString
+  cep: MyString
+  complemento: MyString
+  subtipo: MyString
+  reported_at: 2013-08-31 21:15:24
+
+two:
+  chamado_id: 1
+  placa: MyString
+  logradouro: MyString
+  bairro: MyString
+  numero: MyString
+  cep: MyString
+  complemento: MyString
+  subtipo: MyString
+  reported_at: 2013-08-31 21:15:24
